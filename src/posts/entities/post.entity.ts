@@ -1,1 +1,5 @@
-export class Post {}
+export class Post {
+    id: string;
+    title: string;
+    content: string;
+}
