@@ -10,9 +10,10 @@ import { PostsModule } from './posts/posts.module';
 import { UsersModule } from './users/users.module';
 import { VerifyUser } from './middlewares/verify_user.middleware';
 import { CommentsModule } from './comments/comments.module';
+import { RepliesModule } from './replies/replies.module';
 
 @Module({
-  imports: [PostsModule, UsersModule, CommentsModule],
+  imports: [PostsModule, UsersModule, CommentsModule, RepliesModule],
   controllers: [AppController],
   providers: [AppService],
 })
@@ -25,7 +26,9 @@ export class AppModule implements NestModule {
         { path: '/posts/user/:userId', method: RequestMethod.GET },
         { path: '/comments', method: RequestMethod.GET },
         { path: '/comments/post/:postId', method: RequestMethod.GET },
+        { path: '/replies', method: RequestMethod.GET },
+        { path: '/replies/comment/:postId', method: RequestMethod.GET },
       )
-      .forRoutes('/posts');
+      .forRoutes('/posts', '/comments', 'replies');
   }
 }
