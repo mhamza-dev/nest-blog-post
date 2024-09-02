@@ -12,9 +12,10 @@ import { VerifyUser } from './middlewares/verify_user.middleware';
 import { CommentsModule } from './comments/comments.module';
 import { RepliesModule } from './replies/replies.module';
 import { CategoriesModule } from './categories/categories.module';
+import { UserReactionsModule } from './user_reactions/user_reactions.module';
 
 @Module({
-  imports: [PostsModule, UsersModule, CommentsModule, RepliesModule, CategoriesModule],
+  imports: [PostsModule, UsersModule, CommentsModule, RepliesModule, CategoriesModule, UserReactionsModule],
   controllers: [AppController],
   providers: [AppService],
 })
